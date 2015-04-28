@@ -413,6 +413,11 @@
           (lambda ()
             (define-key (current-local-map) [remap newline] 'reindent-then-newline-and-indent)))
 
+;; company mode
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "M-/") 'company-complete)
+
+
 ;; diminish modes
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
 (eval-after-load "project-persist" '(diminish 'project-persist-mode))
