@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import utilities
+# key: ib-utils
+# binding: direct-keybinding
+# --
+import ibottaUtilities from 'ibotta-web/utils/ibotta-utilities';

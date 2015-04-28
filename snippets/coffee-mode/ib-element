@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: model element id
+# key: ib-element
+# binding: direct-keybinding
+# --
+\`import ModelElementIdMixin from 'ibotta-web/mixins/model-element-id'\`

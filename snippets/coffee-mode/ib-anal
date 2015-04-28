@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: inject analytics
+# key: ib-anal
+# binding: direct-keybinding
+# --
+  analytics: Em.inject.service('google-analytics')

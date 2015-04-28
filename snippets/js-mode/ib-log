@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import logger
+# key: ib-logger
+# binding: direct-keybinding
+# --
+import logger from 'ibotta-web/utils/logger';

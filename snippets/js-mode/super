@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: super
+# key: sup
+# binding: direct-keybinding
+# --
+this._super.apply(this, arguments);

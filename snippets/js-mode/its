@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: it synchronous
+# key: its
+# binding: direct-keybinding
+# --
+it('${1:description}', function(){
+$0
+});

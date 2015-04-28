@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import environment
+# key: ib-env
+# binding: direct-keybinding
+# --
+\`import ENV from 'ibotta-web/config/environment'`
