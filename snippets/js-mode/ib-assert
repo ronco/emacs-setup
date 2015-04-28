@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ib-assert
+# key: ib-assert
+# binding: direct-keybinding
+# --
+logger.assert('${2:description}', ${1:condition});$0

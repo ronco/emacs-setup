@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import ibotta data
+# key: ib-data
+# binding: direct-keybinding
+# --
+\`import ibottaData from 'ibotta-web/utils/ibotta-data'\`

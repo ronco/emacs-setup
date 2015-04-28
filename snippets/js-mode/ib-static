@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import static constants
+# key: ib-static
+# binding: direct-keybinding
+# --
+import staticConstants from 'ibotta-web/utils/static-constants';

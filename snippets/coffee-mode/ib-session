@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: inject session
+# key: ib-session
+# binding: direct-keybinding
+# --
+  session: Em.inject.service 'session'

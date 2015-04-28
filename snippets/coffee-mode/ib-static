@@ -1,0 +1,4 @@
+# key: ib-static
+# name: import static constants
+# --
+\`import staticConstants from 'ibotta-web/utils/static-constants'\`
