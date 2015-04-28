@@ -17,7 +17,7 @@ cat init.el >> init.el.tmp
 mv init.el.tmp $HOME/.emacs.d/init.el
 
 echo "Creating $HOME/.emacs.d/Cask"
-cp Cask $HOME/.emacs.d
+ln -s $emacs_setup_dir/Cask $HOME/.emacs.d/Cask
 
 pushd $HOME/.emacs.d
 echo "Installing Packages with Cask"

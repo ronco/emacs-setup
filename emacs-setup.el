@@ -3,6 +3,9 @@
                     user-emacs-directory
                     "emacs-setup"))
 
+;; pallet mode
+(pallet-mode t)
+
 ;; projectile
 (projectile-global-mode)
 
@@ -296,11 +299,11 @@
 
 ;; GIT
 (require 'magit)
-(require 'git-gutter)
+(require 'git-gutter+)
 (require 'magit-gitflow)
 (define-key global-map "\C-xg" 'magit-status)
 (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
-(global-git-gutter-mode +1)
+(global-git-gutter+-mode +1)
 
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
@@ -402,6 +405,7 @@
 (diminish 'auto-fill-function)
 (diminish 'magit-auto-revert-mode)
 (diminish 'smartparens-mode)
+(diminish 'git-gutter-mode)
 
 
 ;; buffer window toggling
