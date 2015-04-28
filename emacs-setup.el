@@ -6,9 +6,6 @@
 ;; pallet mode
 (pallet-mode t)
 
-;; projectile
-(projectile-global-mode)
-
 ;; path
 ;; add brew path
 (require 'exec-path-from-shell)
@@ -392,12 +389,42 @@
 
 (add-hook 'text-mode-hook 'turn-on-orgtbl)
 
+;; try out helm
+(require 'helm)
+(require 'helm-config)
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h s") 'helm-semantic-or-imenu)
+
+;; Don't use marks or mark-ring. Start?
+(global-set-key (kbd "C-c m") 'helm-all-mark-rings)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+
+;; Don't use eshell. Start?
+(add-hook 'eshell-mode-hook
+          #'(lambda ()
+              (define-key eshell-mode-map (kbd "M-l")  'helm-eshell-history)))
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-z")  'helm-select-action)
+(helm-mode 1)
+
+;; projectile
+(require 'projectile)
+(require 'helm-projectile)
+(projectile-global-mode)
+(helm-projectile-on)
+
+
 ;; modes
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (setq js-indent-level 2)
+(setq coffee-tab-width 2)
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
