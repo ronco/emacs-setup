@@ -420,7 +420,7 @@
 (diminish 'auto-fill-function)
 (diminish 'magit-auto-revert-mode)
 (diminish 'smartparens-mode)
-(diminish 'git-gutter-mode)
+(diminish 'git-gutter+-mode)
 
 
 ;; buffer window toggling
