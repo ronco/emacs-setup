@@ -12,4 +12,4 @@
                        ("ib-utils" "\\`import ibottaUtilities from 'ibotta-web/utils/ibotta-utilities'\\`" "import utilities" nil nil nil nil "direct-keybinding" nil)))
 
 
-;;; Do not edit! File generated at Fri Apr 17 12:07:43 2015
+;;; Do not edit! File generated at Tue Apr 28 17:56:37 2015

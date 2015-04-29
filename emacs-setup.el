@@ -166,7 +166,7 @@
 (setq-default major-mode 'major-mode-from-name)
 
 ;; whitespace
-(global-whitespace-mode)
+;; (global-whitespace-mode)
 
 ;; yes or no
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -204,7 +204,6 @@
 
 ;; tramp
 (setq tramp-default-method "ssh")
-;;     (color-theme-blackboard))
 
 ;; behavioral stuff
 
@@ -212,7 +211,10 @@
 
 ; code templates
 (require 'yasnippet)
-(setq yas-snippet-dirs (concat ronco-es/dir "/snippets"))
+(setq yas-snippet-dirs (list
+                        (concat ronco-es/dir "/snippets")
+                        (concat ronco-es/dir "/yasnippet-snippets")
+                        ))
 
 (yas-global-mode 1)
 
@@ -271,13 +273,6 @@
 ;; Ediff
 (setq ediff-diff-options "-w")
 
-(defun ron-js-hook ()
-  "My JS settings"
-  (whitespace-mode)
-  (flycheck-mode)
-  )
-
-(add-hook 'js-mode-hook 'ron-js-hook)
 
 ;; lisp stuff
 
@@ -355,17 +350,6 @@
      (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
 ))
 
-;; GLOBAL BINDINGS
-
-(fset 'triple-screen
-   "\C-x1\C-x3\C-x3\C-x+")
-(fset 'twin-screen
-   "\C-x1\C-x3\C-x+")
-(fset 'triple-u-screen
-      "\C-x1\C-x2\C-x3\C-u15\C-x^")
-
-(global-set-key (kbd "C-3") 'triple-screen)
-
 ;; org
 (setq org-clock-idle-time 5)
 (require 'org-install)
@@ -417,14 +401,15 @@
 (projectile-global-mode)
 (helm-projectile-on)
 
+;; winner mode
+(require 'winner)
+(winner-mode)
 
 ;; modes
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-(setq js-indent-level 2)
-(setq coffee-tab-width 2)
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
@@ -436,9 +421,39 @@
 (add-to-list 'auto-mode-alist '("Thorfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Puppetfile$" . ruby-mode))
+
+;; ruby
 (add-hook 'ruby-mode-hook
           (lambda ()
             (define-key (current-local-map) [remap newline] 'reindent-then-newline-and-indent)))
+
+;; javascript
+(setq js-indent-level 2)
+(setq coffee-tab-width 2)
+
+(font-lock-add-keywords
+ 'js-mode `(("\\(function *\\)("
+                   (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                             "ƒ")
+                             nil)))))
+(font-lock-add-keywords 'js-mode
+                        '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
+                           1 font-lock-warning-face t)))
+(autoload 'js-mode "js" "Start js-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+
+(add-hook 'js-mode-hook 'turn-on-paredit)
+
+(defun starter-kit-pp-json ()
+  "Pretty-print the json object following point."
+  (interactive)
+  (require 'json)
+  (let ((json-object (save-excursion (json-read))))
+    (switch-to-buffer "*json*")
+    (delete-region (point-min) (point-max))
+    (insert (pp json-object))
+    (goto-char (point-min))))
 
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
@@ -501,3 +516,19 @@
                (enable-paredit-mode)
                (electric-pair-mode)
                )))
+
+
+;; EMBER SPECIFIC STUFF
+;; disable lock files because broccoli
+(setq create-lockfiles nil)
+
+;; GLOBAL BINDINGS
+
+(fset 'triple-screen
+   "\C-x1\C-x3\C-x3\C-x+")
+(fset 'twin-screen
+   "\C-x1\C-x3\C-x+")
+(fset 'triple-u-screen
+      "\C-x1\C-x2\C-x3\C-u15\C-x^")
+
+(global-set-key (kbd "C-3") 'triple-screen)
