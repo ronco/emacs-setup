@@ -166,7 +166,11 @@
 (setq-default major-mode 'major-mode-from-name)
 
 ;; whitespace
-;; (global-whitespace-mode)
+;; make whitespace-mode use just basic coloring
+(setq whitespace-style (quote (trailing face)))
+(defun turn-on-whitespace ()
+  (whitespace-mode))
+(add-hook 'prog-mode-hook 'turn-on-whitespace)
 
 ;; yes or no
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -284,6 +288,7 @@
 (add-hook 'prog-mode-hook 'highlight-indentation-current-column-mode)
 (add-hook 'prog-mode-hook '2x2-spaces)
 
+(require 'winner)
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 (windmove-default-keybindings)
@@ -402,10 +407,6 @@
 (require 'helm-projectile)
 (projectile-global-mode)
 (helm-projectile-on)
-
-;; winner mode
-(require 'winner)
-(winner-mode)
 
 ;; modes
 
