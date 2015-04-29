@@ -278,6 +278,8 @@
 
 
 ;; Modes
+(global-flycheck-mode)
+
 (require 'highlight-indentation)
 (add-hook 'prog-mode-hook 'highlight-indentation-current-column-mode)
 (add-hook 'prog-mode-hook '2x2-spaces)
