@@ -25,6 +25,7 @@
 (depends-on "magit")
 (depends-on "magit-gitflow")
 (depends-on "markdown-mode")
+(depends-on "mocha-snippets")
 (depends-on "moe-theme")
 (depends-on "neotree")
 (depends-on "pallet")
