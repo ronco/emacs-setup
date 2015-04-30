@@ -177,6 +177,13 @@
   (whitespace-mode))
 (add-hook 'prog-mode-hook 'turn-on-whitespace)
 
+;; rectangles
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-<return>") #'cua-rectangle-mark-mode)
+            ))
+
+
 ;; yes or no
 (defalias 'yes-or-no-p 'y-or-n-p)
 
