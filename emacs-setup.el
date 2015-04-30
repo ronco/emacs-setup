@@ -548,4 +548,7 @@
 (fset 'triple-u-screen
       "\C-x1\C-x2\C-x3\C-u15\C-x^")
 
+;; ibotta stuff
+(setq flycheck-coffeelintrc "coffeelint.json")
+
 (global-set-key (kbd "C-3") 'triple-screen)
