@@ -372,6 +372,9 @@
      (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
 ))
 
+;; vc status line
+(setq auto-revert-check-vc-info t)
+
 ;; org
 (setq org-clock-idle-time 5)
 (require 'org-install)
