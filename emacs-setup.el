@@ -354,8 +354,8 @@
 (eval-after-load 'git-gutter+
   '(progn
      ;;; Jump between hunks
-     (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
-     (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+     (define-key git-gutter+-mode-map (kbd "M-n") 'git-gutter+-next-hunk)
+     (define-key git-gutter+-mode-map (kbd "M-p") 'git-gutter+-previous-hunk)
 
      ;;; Act on hunks
      (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
