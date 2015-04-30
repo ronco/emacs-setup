@@ -14,6 +14,7 @@
 (depends-on "git-gutter+")
 (depends-on "git-rebase-mode")
 (depends-on "haml-mode")
+(depends-on "handlebars-mode")
 (depends-on "helm")
 (depends-on "helm-ag")
 (depends-on "helm-project-persist")

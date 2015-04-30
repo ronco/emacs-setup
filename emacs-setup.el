@@ -12,6 +12,11 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+
+;; EMBER SPECIFIC STUFF
+;; disable lock files because broccoli
+(setq create-lockfiles nil)
+
 ;; shell
 (setq explicit-bash-args '("--noediting" "--login"))
 
@@ -520,10 +525,6 @@
                (electric-pair-mode)
                )))
 
-
-;; EMBER SPECIFIC STUFF
-;; disable lock files because broccoli
-(setq create-lockfiles nil)
 
 ;; GLOBAL BINDINGS
 
