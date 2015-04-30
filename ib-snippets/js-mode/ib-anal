@@ -3,4 +3,4 @@
 # key: ib-anal
 # binding: direct-keybinding
 # --
-  analytics: Em.inject.service('google-analytics'),
+  analytics: Ember.inject.service('google-analytics'),
