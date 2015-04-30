@@ -1,8 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: <name>: function {}
-# key: def
-# binding: direct-keybinding
-# --
-${1}: function() {
-$0
-}
