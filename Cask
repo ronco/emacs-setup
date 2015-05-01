@@ -6,6 +6,7 @@
 (depends-on "company")
 (depends-on "diminish")
 (depends-on "dockerfile-mode")
+(depends-on "ember-mode")
 (depends-on "exec-path-from-shell-initialize")
 (depends-on "feature-mode")
 (depends-on "flx-ido")
