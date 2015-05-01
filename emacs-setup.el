@@ -464,8 +464,6 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
-(add-hook 'js-mode-hook 'turn-on-paredit)
-
 (defun starter-kit-pp-json ()
   "Pretty-print the json object following point."
   (interactive)
@@ -501,7 +499,7 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
-(global-set-key (kbd "<f8>") 'neotree-toggle)
+;; (global-set-key (kbd "<f8>") 'neotree-toggle)
 ;; (setq projectile-switch-project-action 'neotree-projectile-action)
 
 ;; folding

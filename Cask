@@ -11,6 +11,7 @@
 (depends-on "feature-mode")
 (depends-on "flx-ido")
 (depends-on "flycheck")
+(depends-on "fold-dwim")
 (depends-on "git-commit-mode")
 (depends-on "git-gutter+")
 (depends-on "git-rebase-mode")
