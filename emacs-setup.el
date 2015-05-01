@@ -554,6 +554,5 @@
   (setq-local flycheck-coffeelintrc "coffeelint.json")
   )
 (add-hook 'coffee-mode-hook 'ibotta-coffee-mode-hook)
-(setq flycheck-coffeelintrc "coffeelint.json")
 
 (global-set-key (kbd "C-3") 'triple-screen)
