@@ -229,7 +229,7 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs (list
                         yas-installed-snippets-dir
-                        "/Users/ronco/github/ember-yasnippets"
+                        "/Users/ronco/github/ember-yasnippets.el/snippets"
                         (concat ronco-es/dir "/ib-snippets")
                         (concat ronco-es/dir "/snippets")
                         (concat ronco-es/dir "/yasnippet-snippets")
