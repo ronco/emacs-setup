@@ -549,6 +549,11 @@
       "\C-x1\C-x2\C-x3\C-u15\C-x^")
 
 ;; ibotta stuff
+(defun ibotta-coffee-mode-hook ()
+  "Hooks for coffee"
+  (setq-local flycheck-coffeelintrc "coffeelint.json")
+  )
+(add-hook 'coffee-mode-hook 'ibotta-coffee-mode-hook)
 (setq flycheck-coffeelintrc "coffeelint.json")
 
 (global-set-key (kbd "C-3") 'triple-screen)
