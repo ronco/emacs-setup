@@ -478,6 +478,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "M-/") 'company-complete)
 
+;; livedown markdown preview
+(add-to-list 'load-path (concat ronco-es/dir "/emacs-livedown"))
+(require 'livedown)
 
 ;; diminish modes
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))

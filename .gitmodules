@@ -1,3 +1,6 @@
 [submodule "yasnippet-snippets"]
 	path = yasnippet-snippets
 	url = git@github.com:AndreaCrotti/yasnippet-snippets.git
+[submodule "emacs-livedown"]
+	path = emacs-livedown
+	url = git@github.com:shime/emacs-livedown.git
