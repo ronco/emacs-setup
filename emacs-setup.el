@@ -511,6 +511,8 @@
 (global-set-key (kbd "<M-f7>")    'fold-dwim-hide-all)
 (global-set-key (kbd "<S-M-f7>")  'fold-dwim-show-all)
 
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
 (defun my-scss-mode-hook ()
   "Hooks for SASS mode."
   (setq-default scss-compile-at-save nil)
