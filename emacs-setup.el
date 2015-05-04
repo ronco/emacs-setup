@@ -227,13 +227,23 @@
 
 ; code templates
 (require 'yasnippet)
-(setq yas-snippet-dirs (list
-                        yas-installed-snippets-dir
-                        "/Users/ronco/github/ember-yasnippets.el/snippets"
-                        (concat ronco-es/dir "/ib-snippets")
-                        (concat ronco-es/dir "/snippets")
-                        (concat ronco-es/dir "/yasnippet-snippets")
-                        ))
+;; (append yas-snippet-dirs (list
+;;                         yas-installed-snippets-dir
+;;                         "/Users/ronco/github/ember-yasnippets.el/snippets"
+;;                         (concat ronco-es/dir "/ib-snippets")
+;;                         (concat ronco-es/dir "/snippets")
+;;                         (concat ronco-es/dir "/yasnippet-snippets")
+;;                         ))
+
+(eval-after-load "yasnippet"
+  (lambda ()
+    (add-to-list 'yas-snippet-dirs (concat ronco-es/dir "/ib-snippets"))
+    (add-to-list 'yas-snippet-dirs (concat ronco-es/dir "/snippets"))
+    (add-to-list 'yas-snippet-dirs (concat ronco-es/dir "/yasnippet-snippets"))
+    (yas-load-directory (concat ronco-es/dir "/ib-snippets"))
+    (yas-load-directory (concat ronco-es/dir "/snippets"))
+    (yas-load-directory (concat ronco-es/dir "/yasnippet-snippets"))
+    ))
 
 (yas-global-mode 1)
 
