@@ -33,6 +33,10 @@
 (set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
 
+;; os keys
+;; allow right alt to enter funky characters
+(setq ns-right-alternate-modifier nil)
+
 ;; start emacs server
 (require 'server)
 (if (server-running-p)
