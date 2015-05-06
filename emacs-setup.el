@@ -486,6 +486,8 @@
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "M-/") 'company-complete)
+;; ensure plain text suggestions are case sensitive
+(setq company-dabbrev-downcase nil)
 
 ;; livedown markdown preview
 (add-to-list 'load-path (concat ronco-es/dir "/emacs-livedown"))
