@@ -308,6 +308,10 @@
 ;; Modes
 (global-flycheck-mode)
 
+(nyan-mode)
+(nyan-start-animation)
+(setq nyan-wavy-trail t)
+
 (require 'highlight-indentation)
 (add-hook 'prog-mode-hook 'highlight-indentation-current-column-mode)
 (add-hook 'prog-mode-hook '2x2-spaces)
@@ -497,10 +501,15 @@
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
 (eval-after-load "project-persist" '(diminish 'project-persist-mode))
 (eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "whitespace" '(diminish 'whitespace-mode))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode))
+(eval-after-load "helm" '(diminish 'helm-mode))
+(eval-after-load "ember-mode" '(diminish 'ember-mode))
 (diminish 'auto-fill-function)
 (diminish 'magit-auto-revert-mode)
 (diminish 'smartparens-mode)
 (diminish 'git-gutter+-mode)
+(diminish 'hs-minor-mode)
 
 
 ;; buffer window toggling

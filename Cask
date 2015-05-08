@@ -31,6 +31,7 @@
 (depends-on "mocha-snippets")
 (depends-on "moe-theme")
 (depends-on "neotree")
+(depends-on "nyan-mode")
 (depends-on "pallet")
 (depends-on "powerline")
 (depends-on "project-persist")
