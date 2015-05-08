@@ -550,12 +550,12 @@
       "\C-x1\C-x2\C-x3\C-u15\C-x^")
 
 ;; ibotta stuff
-(defun ibotta-coffee-mode-hook ()
-  "Hooks for coffee"
-  (setq-local flycheck-coffeelintrc "coffeelint.json")
-  (local-set-key "\C-c\C-c" #'coffee-compile-file)
-  )
-(add-hook 'coffee-mode-hook 'ibotta-coffee-mode-hook)
-(customize-set-variable 'coffee-command "/Users/ronco/bin/black-coffee.sh")
-
 (global-set-key (kbd "C-3") 'triple-screen)
+
+;; load module files
+(let ((module-dir (concat ronco-es/dir "/modules")))
+  (when (file-exists-p module-dir)
+    (print module-dir)
+    (add-to-list 'load-path module-dir)
+    (mapc #'load
+          (directory-files module-dir t ".*\.el$"))))
