@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "better-defaults")
+(depends-on "buffer-move")
 (depends-on "coffee-mode")
 (depends-on "company")
 (depends-on "diminish")
