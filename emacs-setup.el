@@ -540,19 +540,6 @@
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
-;; Enable paredit for a couple for non lisp modes; tweak
-;; paredit-space-for-delimiter-predicates to avoid inserting spaces
-;; before open parens.
-(dolist (mode '(ruby js yaml))
-  (add-hook (intern (format "%s-mode-hook" mode))
-            '(lambda ()
-               (add-to-list (make-local-variable 'paredit-space-for-delimiter-predicates)
-                            (lambda (_ _) nil))
-               (enable-paredit-mode)
-               (electric-pair-mode)
-               )))
-
-
 ;; GLOBAL BINDINGS
 
 (fset 'triple-screen
