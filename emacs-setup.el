@@ -58,7 +58,7 @@
 ;; fonts
 ;;(dynamic-fonts-setup)
 (if window-system
-    (set-face-attribute 'default nil :font "Menlo-16"))
+    (set-face-attribute 'default nil :font "Menlo-14"))
 
 ;; mode line
 (require 'powerline)
