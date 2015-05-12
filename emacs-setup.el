@@ -505,11 +505,11 @@
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
 (eval-after-load "helm" '(diminish 'helm-mode))
 (eval-after-load "ember-mode" '(diminish 'ember-mode))
+(eval-after-load "hs-minor-mode" '(diminish 'hs-minor-mode))
 (diminish 'auto-fill-function)
 (diminish 'magit-auto-revert-mode)
 (diminish 'smartparens-mode)
 (diminish 'git-gutter+-mode)
-(diminish 'hs-minor-mode)
 
 
 ;; buffer window toggling
@@ -568,3 +568,5 @@
     (add-to-list 'load-path module-dir)
     (mapc #'load
           (directory-files module-dir t ".*\.el$"))))
+
+(print "Successfully loaded emacs-setup")
