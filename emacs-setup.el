@@ -455,6 +455,7 @@
 (add-to-list 'auto-mode-alist '("Thorfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Puppetfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
 
 ;; ruby
 (add-hook 'ruby-mode-hook
