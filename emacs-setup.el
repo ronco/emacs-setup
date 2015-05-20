@@ -13,10 +13,6 @@
   (exec-path-from-shell-initialize))
 
 
-;; EMBER SPECIFIC STUFF
-;; disable lock files because broccoli
-(setq create-lockfiles nil)
-
 ;; shell
 (setq explicit-bash-args '("--noediting" "--login"))
 
@@ -477,7 +473,10 @@
 (autoload 'js2-mode "js" "Start js-mode" t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-
+(custom-set-variables
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p nil)
+)
 ;; js2-refactor
 (require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -513,7 +512,10 @@
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
 (eval-after-load "helm" '(diminish 'helm-mode))
 (eval-after-load "ember-mode" '(diminish 'ember-mode))
-(eval-after-load "hs-minor-mode" '(diminish 'hs-minor-mode))
+(add-hook 'js2-refactor-mode-hook (lambda ()
+                               (diminish 'js2-refactor-mode)))
+(add-hook 'hs-minor-mode-hook (lambda ()
+                               (diminish 'hs-minor-mode)))
 (diminish 'auto-fill-function)
 (diminish 'magit-auto-revert-mode)
 (diminish 'smartparens-mode)
