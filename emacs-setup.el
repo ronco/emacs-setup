@@ -467,16 +467,23 @@
 (setq coffee-tab-width 2)
 
 (font-lock-add-keywords
- 'js-mode `(("\\(function *\\)("
+ 'js2-mode `(("\\(function *\\)("
                    (0 (progn (compose-region (match-beginning 1) (match-end 1)
                                              "ƒ")
                              nil)))))
-(font-lock-add-keywords 'js-mode
+(font-lock-add-keywords 'js2-mode
                         '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
                            1 font-lock-warning-face t)))
-(autoload 'js-mode "js" "Start js-mode" t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+(autoload 'js2-mode "js" "Start js-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+
+;; js2-refactor
+(require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(js2r-add-keybindings-with-prefix "C-c C-j")
+
+
 
 (defun starter-kit-pp-json ()
   "Pretty-print the json object following point."

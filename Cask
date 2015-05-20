@@ -30,6 +30,7 @@
 (depends-on "helm-spotify")
 (depends-on "highlight-indentation")
 (depends-on "js2-mode")
+(depends-on "js2-refactor")
 (depends-on "json-mode")
 (depends-on "magit")
 (depends-on "magit-gitflow")
