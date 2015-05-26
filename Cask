@@ -50,6 +50,7 @@
 (depends-on "project-persist")
 (depends-on "projectile")
 (depends-on "puppet-mode")
+(depends-on "rainbow-mode")
 (depends-on "rspec-mode")
 (depends-on "rvm")
 (depends-on "sass-mode")
