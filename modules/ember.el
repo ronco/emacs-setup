@@ -3,6 +3,7 @@
 ;; disable lock files because broccoli
 (setq create-lockfiles nil)
 
+;; add mocha test specific globals
 (add-hook 'js2-mode-hook
       (lambda ()
         (when (string-match-p "tests" (buffer-file-name))
