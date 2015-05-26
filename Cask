@@ -52,6 +52,7 @@
 (depends-on "rspec-mode")
 (depends-on "rvm")
 (depends-on "sass-mode")
+(depends-on "scss-mode")
 (depends-on "slim-mode")
 (depends-on "smartparens")
 (depends-on "smex")
