@@ -27,6 +27,7 @@
 (depends-on "handlebars-mode")
 (depends-on "helm")
 (depends-on "helm-ag")
+(depends-on "helm-dash")
 (depends-on "helm-project-persist")
 (depends-on "helm-projectile")
 (depends-on "helm-spotify")
