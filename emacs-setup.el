@@ -501,8 +501,12 @@
 
 (add-hook 'js2-init-hook
           (lambda ()
-            (setq js2-additional-externs (grab-jshint-globals))
+            (setq js2-additional-externs (append (grab-jshint-globals) nil))
             ))
+;; (add-hook 'js2-init-hook
+;;           (lambda ()
+;;             (setq js2-additional-externs '("describe"))
+;;             ))
 
 (defun starter-kit-pp-json ()
   "Pretty-print the json object following point."
