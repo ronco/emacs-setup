@@ -292,7 +292,15 @@
 (setq nxml-indent 2)
 
 ;; whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; delete trailing whitespace, except for markdown because markdown is
+;; evil apparently and actually wants trailing whitespace
+(defun selectively-delete-trailing-whitespace ()
+    "Delete trailing whitespace, but not for markdown"
+    (interactive)
+    (when (not (string-equal major-mode "markdown-mode"))
+    (delete-trailing-whitespace)
+    ))
+(add-hook 'before-save-hook 'selectively-delete-trailing-whitespace)
 
 ;; Ediff
 (setq ediff-diff-options "-w")
