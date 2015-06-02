@@ -490,7 +490,19 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-j")
 
+(defun grab-jshint-globals()
+  "Find jshintrc in hierarchy and return predef globals"
+  (interactive)
+  (let ((dir (locate-dominating-file (buffer-file-name) ".jshintrc")))
+    (when dir
+      (print (cdr (assoc 'predef (json-read-file (concat dir ".jshintrc")))))
+      ))
+  )
 
+(add-hook 'js2-init-hook
+          (lambda ()
+            (setq js2-additional-externs (grab-jshint-globals))
+            ))
 
 (defun starter-kit-pp-json ()
   "Pretty-print the json object following point."
