@@ -1,5 +1,6 @@
 (source gnu)
 (source melpa)
+(source melpa-stable)
 
 (depends-on "async")
 (depends-on "better-defaults")
@@ -41,6 +42,7 @@
 (depends-on "markdown-mode")
 (depends-on "mocha-snippets")
 (depends-on "moe-theme")
+(depends-on "multiple-cursors")
 (depends-on "neotree")
 (depends-on "nyan-mode")
 (depends-on "package-build")
@@ -59,6 +61,7 @@
 (depends-on "smartparens")
 (depends-on "smex")
 (depends-on "vkill")
+(depends-on "web-mode")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
 (depends-on "zenburn-theme")

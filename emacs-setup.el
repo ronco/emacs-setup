@@ -317,7 +317,7 @@
 (setq nyan-wavy-trail t)
 
 (require 'highlight-indentation)
-(add-hook 'prog-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
 (add-hook 'prog-mode-hook '2x2-spaces)
 
 (require 'winner)
@@ -460,6 +460,17 @@
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Puppetfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs$" . web-mode))
+
+;; web mode
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (print "Running my-web-hook-mode")
+  (setq web-mode-markup-indent-offset 2)
+  (print "RAN my-web-hook-mode")
+  )
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+
 
 ;; ruby
 (add-hook 'ruby-mode-hook
