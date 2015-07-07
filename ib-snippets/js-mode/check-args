@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: check-args
+# key: _checkArgs
+# binding: direct-keybinding
+# --
+_checkArgs: Ember.on('init', function(){
+$0
+})${1,}

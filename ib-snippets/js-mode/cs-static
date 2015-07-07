@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: import static constants
+# key: ct-static
+# binding: direct-keybinding
+# --
+import staticConstants from 'cs/utils/static-constants';

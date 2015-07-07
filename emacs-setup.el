@@ -310,14 +310,17 @@
 
 
 ;; Modes
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
 (global-flycheck-mode)
 
 (nyan-mode)
 (nyan-start-animation)
 (setq nyan-wavy-trail t)
 
-(require 'highlight-indentation)
-(add-hook 'coffee-mode-hook 'highlight-indentation-current-column-mode)
+;; (require 'highlight-indentation)
+(add-hook 'prog-mode-hook 'highlight-indentation-current-column-mode)
 (add-hook 'prog-mode-hook '2x2-spaces)
 
 (require 'winner)
@@ -465,9 +468,8 @@
 ;; web mode
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-  (print "Running my-web-hook-mode")
   (setq web-mode-markup-indent-offset 2)
-  (print "RAN my-web-hook-mode")
+   (set (make-local-variable 'company-backends) '(company-web-html))
   )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
@@ -504,10 +506,12 @@
 (defun grab-jshint-globals()
   "Find jshintrc in hierarchy and return predef globals"
   (interactive)
-  (let ((dir (locate-dominating-file (buffer-file-name) ".jshintrc")))
-    (when dir
-      (print (cdr (assoc 'predef (json-read-file (concat dir ".jshintrc")))))
-      ))
+  (when (buffer-file-name)
+    (let ((dir (locate-dominating-file (buffer-file-name) ".jshintrc")))
+      (when dir
+        (print (cdr (assoc 'predef (json-read-file (concat dir ".jshintrc")))))
+        ))
+    )
   )
 
 (add-hook 'js2-init-hook

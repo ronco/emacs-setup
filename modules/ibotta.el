@@ -18,6 +18,10 @@
   (interactive)
   (ronco-sql-connect 'mysql 'reporting))
 
+(defun redshift-db ()
+  (interactive)
+  (ronco-sql-connect 'postgres 'redshift))
+
 (defun ronco-sql-connect (product connection)
   (require 'ib-sql "ib-sql.el.gpg")
   (setq sql-product product)
