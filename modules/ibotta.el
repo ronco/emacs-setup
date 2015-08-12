@@ -2,9 +2,17 @@
   "Hooks for coffee"
   (setq-local flycheck-coffeelintrc "coffeelint.json")
   (local-set-key "\C-c\C-c" #'coffee-compile-file)
+  (local-set-key "\C-c\C-d" #'decaffeinate)
   )
 (add-hook 'coffee-mode-hook 'ibotta-coffee-mode-hook)
 (customize-set-variable 'coffee-command "/Users/ronco/bin/black-coffee.sh")
+
+(defun decaffeinate ()
+  (interactive)
+  (let ((coffee-command "/Users/ronco/bin/decaffeinate-coffee.sh"))
+    (coffee-compile-file)
+    )
+  )
 
 (defun dev-db ()
   (interactive)

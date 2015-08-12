@@ -331,10 +331,24 @@
 
 (setq warning-minimum-level :error)
 
+;; sql
+(defun my-sql-save-history-hook ()
+  (let ((lval 'sql-input-ring-file-name)
+        (rval 'sql-product))
+    (if (symbol-value rval)
+        (let ((filename
+               (concat "~/.emacs.d/sql/"
+                       (symbol-name (symbol-value rval))
+                       "-history.sql")))
+          (set (make-local-variable lval) filename))
+      (error
+       (format "SQL history will not be saved because %s is nil"
+               (symbol-name rval))))))
+
+(add-hook 'sql-interactive-mode-hook 'my-sql-save-history-hook)
+
 ;; GIT
 (require 'magit)
-(require 'git-gutter+)
-(require 'magit-gitflow)
 (define-key global-map "\C-xg" 'magit-status)
 (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 (global-git-gutter+-mode +1)
@@ -369,6 +383,9 @@
   (magit-refresh))
 
 (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
+
+(require 'git-gutter+)
+(require 'magit-gitflow)
 
 (if (file-exists-p "/usr/local/bin/emacsclient")
     (setq magit-emacsclient-executable "/usr/local/bin/emacsclient"))
@@ -556,10 +573,8 @@
 (add-hook 'hs-minor-mode-hook (lambda ()
                                (diminish 'hs-minor-mode)))
 (diminish 'auto-fill-function)
-(diminish 'magit-auto-revert-mode)
 (diminish 'smartparens-mode)
 (diminish 'git-gutter+-mode)
-
 
 ;; buffer window toggling
 (global-set-key "\C-x\C-b" 'bs-show)
