@@ -4,5 +4,5 @@
 # binding: direct-keybinding
 # --
 _checkArgs: Ember.on('init', function(){
-$0
-})${1,}
+logger.assert('${2:message}', $0);
+})${1:,}
