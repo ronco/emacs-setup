@@ -23,6 +23,7 @@
 (depends-on "flx-ido")
 (depends-on "flycheck")
 (depends-on "fold-dwim")
+(depends-on "gist")
 (depends-on "git-gutter+")
 (depends-on "golden-ratio")
 (depends-on "haml-mode")
