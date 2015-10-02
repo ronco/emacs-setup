@@ -9,6 +9,7 @@
 (depends-on "cask")
 (depends-on "coffee-mode")
 (depends-on "company")
+(depends-on "company-emoji")
 (depends-on "company-web")
 (depends-on "dash")
 (depends-on "dash-at-point")

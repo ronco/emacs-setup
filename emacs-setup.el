@@ -54,7 +54,11 @@
 ;; fonts
 ;;(dynamic-fonts-setup)
 (if window-system
-    (set-face-attribute 'default nil :font "Menlo-14"))
+    (progn
+      (set-face-attribute 'default nil :font "Menlo-14")
+      (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") nil 'prepend)
+      ))
+
 
 ;; mode line
 (require 'powerline)
@@ -553,6 +557,9 @@
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "M-/") 'company-complete)
+(require 'company-emoji)
+(eval-after-load "company" '(company-emoji-init))
+
 ;; ensure plain text suggestions are case sensitive
 (setq company-dabbrev-downcase nil)
 
