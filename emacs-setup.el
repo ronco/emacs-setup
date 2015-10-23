@@ -165,8 +165,11 @@
                 'newline-anywhere)
 
 ;; quiet down the display
-(setq visible-bell t
-      inhibit-startup-message t)
+;; visible-bell breaks center display on el-capitan
+(setq visible-bell nil
+      inhibit-startup-message t
+      ring-bell-function 'ignore
+)
 
 (defun major-mode-from-name ()
   "Choose proper mode for buffers created by switch-to-buffer."
