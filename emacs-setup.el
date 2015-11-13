@@ -18,7 +18,8 @@
 
 ;; env setup
 (setenv "NODENV_VERSION" "v0.12")
-(setenv "RBENV_VERSION" "2.1.4")
+(setenv "RBENV_VERSION" "2.1.6")
+(setenv "LANG" "en_US.UTF-8")
 
 ;; UTF-8
 (setq locale-coding-system 'utf-8)
