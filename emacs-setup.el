@@ -240,6 +240,7 @@
     (dolist (yadir (list
                     yas-installed-snippets-dir
                     "/Users/ronco/github/ember-yasnippets.el/snippets"
+                    "/Users/ronco/github/mocha-snippets.el/snippets"
                     (concat ronco-es/dir "/ib-snippets")
                     (concat ronco-es/dir "/snippets")
                     (concat ronco-es/dir "/yasnippet-snippets")))
@@ -310,6 +311,13 @@
     ))
 (add-hook 'before-save-hook 'selectively-delete-trailing-whitespace)
 
+;; string inflection
+(require 'string-inflection)
+(global-set-key (kbd "C-c s u") 'string-inflection-underscore)
+(global-set-key (kbd "C-c s -") 'string-inflection-lisp)
+(global-set-key (kbd "C-c s c") 'string-inflection-lower-camelcase)
+(global-set-key (kbd "C-c s C") 'string-inflection-camelcase)
+
 ;; Ediff
 (setq ediff-diff-options "-w")
 
@@ -328,7 +336,8 @@
 (setq nyan-wavy-trail t)
 
 ;; (require 'highlight-indentation)
-(add-hook 'prog-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'js2-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'ruby-mode-hook 'highlight-indentation-current-column-mode)
 (add-hook 'prog-mode-hook '2x2-spaces)
 
 (require 'winner)
@@ -470,6 +479,8 @@
 (require 'helm-projectile)
 (projectile-global-mode)
 (helm-projectile-on)
+(setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
+(projectile-register-project-type 'ember-cli '("ember-cli-build.js") "ember s" "ember t -s")
 
 ;; modes
 
@@ -493,10 +504,10 @@
 ;; web mode
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
    (set (make-local-variable 'company-backends) '(company-web-html))
   )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
+(setq web-mode-markup-indent-offset 2)
 
 
 ;; ruby
