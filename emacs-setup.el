@@ -520,7 +520,7 @@
 (setq coffee-tab-width 2)
 
 (font-lock-add-keywords
- 'js2-mode `(("\\(function *\\)("
+ 'js2-mode `(("\\(function*\\)("
                    (0 (progn (compose-region (match-beginning 1) (match-end 1)
                                              "ƒ")
                              nil)))))

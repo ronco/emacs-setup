@@ -3,6 +3,6 @@
 # key: its
 # binding: direct-keybinding
 # --
-it('${1:description}', function(){
+it('${1:description}', function() {
 $0
 });

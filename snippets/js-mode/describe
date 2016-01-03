@@ -3,6 +3,6 @@
 # key: desc
 # binding: direct-keybinding
 # --
-describe('${1:description}', function(){
+describe('${1:description}', function() {
 $0
 });
