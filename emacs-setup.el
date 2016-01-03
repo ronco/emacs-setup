@@ -559,6 +559,10 @@
 ;;             (setq js2-additional-externs '("describe"))
 ;;             ))
 
+;; jscs
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "C-c C-j f") 'jscs-fix))
+
 (defun starter-kit-pp-json ()
   "Pretty-print the json object following point."
   (interactive)
