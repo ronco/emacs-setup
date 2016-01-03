@@ -502,12 +502,22 @@
 (add-to-list 'auto-mode-alist '("\\.hbs$" . web-mode))
 
 ;; web mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'html-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode)
+(add-hook 'web-mode-hook  'emmet-mode)
+(setq emmet-preview-default t)
+
+(require 'company-web-html)
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-   (set (make-local-variable 'company-backends) '(company-web-html))
+  (set (make-local-variable 'company-backends) '(company-web-html))
+  (company-mode t)
   )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 (setq web-mode-markup-indent-offset 2)
+
 
 
 ;; ruby
@@ -579,6 +589,11 @@
 (require 'company-emoji)
 (eval-after-load "company" '(company-emoji-init))
 
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+
 ;; ensure plain text suggestions are case sensitive
 (setq company-dabbrev-downcase nil)
 
@@ -589,7 +604,7 @@
 ;; diminish modes
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
 (eval-after-load "project-persist" '(diminish 'project-persist-mode))
-(eval-after-load "company" '(diminish 'company-mode))
+;; (eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "whitespace" '(diminish 'whitespace-mode))
 (eval-after-load "flycheck" '(diminish 'flycheck-mode))
 (eval-after-load "helm" '(diminish 'helm-mode))
