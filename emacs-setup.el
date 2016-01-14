@@ -420,10 +420,10 @@
 
      ;;; Act on hunks
      (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
-     (define-key git-gutter+-mode-map (kbd "C-c r") 'git-gutter+-revert-hunks)
+     (define-key git-gutter+-mode-map (kbd "C-x v R") 'git-gutter+-revert-hunks)
      ;; Stage hunk at point.
      ;; If region is active, stage all hunk lines within the region.
-     (define-key git-gutter+-mode-map (kbd "C-c t") 'git-gutter+-stage-hunks)
+     (define-key git-gutter+-mode-map (kbd "C-x v S") 'git-gutter+-stage-hunks)
 ))
 
 ;; vc status line
@@ -521,9 +521,32 @@
 
 
 ;; ruby
+(require 'robe)
 (add-hook 'ruby-mode-hook
           (lambda ()
-            (define-key (current-local-map) [remap newline] 'reindent-then-newline-and-indent)))
+            (define-key (current-local-map) [remap newline] 'reindent-then-newline-and-indent)
+            (local-set-key (kbd "M-.") 'robe-jump)
+            (set (make-local-variable 'company-backends) '(company-robe))
+            (company-mode t)
+            ))
+
+;; try to get folding working
+(eval-after-load "hideshow"
+  '(add-to-list 'hs-special-modes-alist
+                 `(ruby-mode
+                   ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+                   ,(rx (or "}" "]" "end"))                  ; Block end
+                   ,(rx (or "#" "=begin"))                   ; Comment start
+                   ruby-forward-sexp nil)))
+
+;; projectile-rails
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+;; rspec
+(eval-after-load 'rspec-mode
+ '(rspec-install-snippets))
+
 
 ;; javascript
 (setq js-indent-level 2)
