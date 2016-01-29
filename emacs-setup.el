@@ -526,7 +526,6 @@
           (lambda ()
             (define-key (current-local-map) [remap newline] 'reindent-then-newline-and-indent)
             (local-set-key (kbd "M-.") 'robe-jump)
-            (set (make-local-variable 'company-backends) '(company-robe))
             (company-mode t)
             ))
 
@@ -547,6 +546,10 @@
 (eval-after-load 'rspec-mode
  '(rspec-install-snippets))
 
+;; inf-ruby
+(add-hook 'inf-ruby-mode-hook (lambda ()
+                                (set-variable 'company-idle-delay nil)
+                                ))
 
 ;; javascript
 (setq js-indent-level 2)
@@ -611,6 +614,8 @@
 (global-set-key (kbd "M-/") 'company-complete)
 (require 'company-emoji)
 (eval-after-load "company" '(company-emoji-init))
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
 
 (setq company-tooltip-limit 20)                      ; bigger popup window
 (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
