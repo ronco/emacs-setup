@@ -12,6 +12,9 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; package
+(require 'package)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;; shell
 (setq explicit-bash-args '("--noediting" "--login"))
@@ -326,8 +329,11 @@
 
 
 ;; Modes
-(require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(require 'avy)
+(define-key global-map (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
+
+(require 'ace-window)
+(define-key global-map (kbd "s-w") 'ace-window)
 
 (global-flycheck-mode)
 
@@ -451,6 +457,8 @@
 (define-key global-map "\C-cc" 'org-capture)
 
 (add-hook 'text-mode-hook 'turn-on-orgtbl)
+
+(setq org-export-backends '(md html ascii icalendar))
 
 ;; try out helm
 (require 'helm)
@@ -705,5 +713,16 @@
     (add-to-list 'load-path module-dir)
     (mapc #'load
           (directory-files module-dir t ".*\.el$"))))
+
+;; deft mode
+
+(require 'deft)
+(global-set-key (kbd "<f8>") 'deft)
+(setq deft-extensions '("md" "org" "txt"))
+(setq deft-default-extension "md")
+(setq deft-markdown-mode-title-level 2)
+(setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
+(setq deft-recursive t)
+(setq deft-use-filter-string-for-filename t)
 
 (print "Successfully loaded emacs-setup")
