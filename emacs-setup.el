@@ -175,11 +175,11 @@
       ring-bell-function 'ignore
 )
 
-(defun major-mode-from-name ()
-  "Choose proper mode for buffers created by switch-to-buffer."
-  (let ((buffer-file-name (or buffer-file-name (buffer-name))))
-    (set-auto-mode)))
-(setq-default major-mode 'major-mode-from-name)
+;; (defun major-mode-from-name ()
+;;   "Choose proper mode for buffers created by switch-to-buffer."
+;;   (let ((buffer-file-name (or buffer-file-name (buffer-name))))
+;;     (set-auto-mode)))
+;; (setq-default major-mode 'major-mode-from-name)
 
 ;; whitespace
 ;; make whitespace-mode use just basic coloring
