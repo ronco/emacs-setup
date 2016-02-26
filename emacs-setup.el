@@ -719,7 +719,7 @@
 (require 'deft)
 (global-set-key (kbd "<f8>") 'deft)
 (setq deft-extensions '("md" "org" "txt"))
-(setq deft-default-extension "md")
+(setq deft-default-extension "org")
 (setq deft-markdown-mode-title-level 2)
 (setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
 (setq deft-recursive t)
