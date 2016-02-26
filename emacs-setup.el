@@ -309,7 +309,7 @@
 (defun selectively-delete-trailing-whitespace ()
     "Delete trailing whitespace, but not for markdown"
     (interactive)
-    (when (not (string-equal major-mode "markdown-mode"))
+    (when (not (member major-mode ("markdown-mode" "org-mode")))
     (delete-trailing-whitespace)
     ))
 (add-hook 'before-save-hook 'selectively-delete-trailing-whitespace)
