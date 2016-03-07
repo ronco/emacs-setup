@@ -309,7 +309,7 @@
 (defun selectively-delete-trailing-whitespace ()
     "Delete trailing whitespace, but not for markdown"
     (interactive)
-    (when (not (member major-mode ("markdown-mode" "org-mode")))
+    (when (not (member major-mode '("markdown-mode" "org-mode")))
     (delete-trailing-whitespace)
     ))
 (add-hook 'before-save-hook 'selectively-delete-trailing-whitespace)
@@ -458,7 +458,7 @@
 
 (add-hook 'text-mode-hook 'turn-on-orgtbl)
 
-(setq org-export-backends '(md html ascii icalendar))
+(setq org-export-backends '(gfm md html ascii icalendar))
 
 ;; try out helm
 (require 'helm)
