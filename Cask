@@ -68,6 +68,7 @@
 (depends-on "moe-theme")
 (depends-on "multiple-cursors")
 (depends-on "neotree")
+(depends-on "nvm")
 (depends-on "nyan-mode")
 (depends-on "org")
 (depends-on "org-plus-contrib")

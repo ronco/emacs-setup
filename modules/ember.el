@@ -29,3 +29,5 @@
     (wrap-text b e pretext posttext)
     )
   )
+
+(nvm-use "0.12")
