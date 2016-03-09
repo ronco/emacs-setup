@@ -703,7 +703,6 @@
 (fset 'triple-u-screen
       "\C-x1\C-x2\C-x3\C-u15\C-x^")
 
-;; ibotta stuff
 (global-set-key (kbd "C-3") 'triple-screen)
 
 ;; load module files
@@ -724,5 +723,13 @@
 (setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
 (setq deft-recursive t)
 (setq deft-use-filter-string-for-filename t)
+
+;; quickly see full path
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
+(global-set-key (kbd "<f1>") 'show-file-name)
 
 (print "Successfully loaded emacs-setup")
