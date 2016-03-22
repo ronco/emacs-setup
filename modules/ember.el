@@ -30,4 +30,5 @@
     )
   )
 
+(require 'nvm)
 (nvm-use "0.12")
