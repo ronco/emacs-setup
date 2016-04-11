@@ -741,5 +741,8 @@
 (add-to-list 'display-buffer-alist
              '("." nil (reusable-frames . t)))
 
+(require 'sublimity)
+(require 'sublimity-map)
+(sublimity-mode 1)
 
 (print "Successfully loaded emacs-setup")

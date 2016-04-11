@@ -96,6 +96,7 @@
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "string-inflection")
+(depends-on "sublimity")
 (depends-on "vkill")
 (depends-on "web-completion-data")
 (depends-on "web-mode")
