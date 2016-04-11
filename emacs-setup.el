@@ -158,6 +158,7 @@
             (define-key org-mode-map [(ctrl \,)]
               'decrease-window-width)))
 
+
 ;; newline anywhere
 (defun newline-anywhere ()
   "Add a newline from anywhere in the line."
@@ -313,6 +314,9 @@
     (delete-trailing-whitespace)
     ))
 (add-hook 'before-save-hook 'selectively-delete-trailing-whitespace)
+
+;; spelling
+(add-hook 'text-mode-hook 'flyspell-mode)
 
 ;; string inflection
 (require 'string-inflection)
