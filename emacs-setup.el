@@ -732,4 +732,10 @@
 
 (global-set-key (kbd "<f1>") 'show-file-name)
 
+;; reuse frames
+;; http://emacs.stackexchange.com/questions/14125/replacing-display-buffer-reuse-frames
+(add-to-list 'display-buffer-alist
+             '("." nil (reusable-frames . t)))
+
+
 (print "Successfully loaded emacs-setup")
