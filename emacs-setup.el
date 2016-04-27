@@ -743,6 +743,6 @@
 
 (require 'sublimity)
 (require 'sublimity-map)
-(sublimity-mode 1)
+(sublimity-mode 0)
 
 (print "Successfully loaded emacs-setup")
