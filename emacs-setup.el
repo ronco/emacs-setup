@@ -59,7 +59,7 @@
 ;;(dynamic-fonts-setup)
 (if window-system
     (progn
-      (set-face-attribute 'default nil :font "Menlo-14")
+      (set-face-attribute 'default nil :font "Menlo-12")
       (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") nil 'prepend)
       ))
 
