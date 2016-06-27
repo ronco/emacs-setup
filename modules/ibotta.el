@@ -34,3 +34,11 @@
   (require 'ib-sql "ib-sql.el.gpg")
   (setq sql-product product)
   (sql-connect connection))
+
+
+;; tramp
+(require 'tramp)
+(add-to-list 'tramp-default-proxies-alist
+             '("webapp-server-staging-a01\\.ibotta\\.com\\'"
+               "\\`ibotta\\'"
+               "/ssh:ubuntu@%h:"))
