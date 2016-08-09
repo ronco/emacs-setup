@@ -8,6 +8,7 @@
 (depends-on "avy")
 (depends-on "better-defaults")
 (depends-on "buffer-move")
+(depends-on "bundler")
 (depends-on "cask")
 (depends-on "coffee-mode")
 (depends-on "company")
