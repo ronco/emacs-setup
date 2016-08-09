@@ -22,6 +22,7 @@
 (depends-on "deft")
 (depends-on "diminish")
 (depends-on "dockerfile-mode")
+(depends-on "edit-server")
 (depends-on "editorconfig")
 (depends-on "ember-mode")
 (depends-on "emmet-mode")

@@ -745,4 +745,7 @@
 (require 'sublimity-map)
 (sublimity-mode 0)
 
+(require 'edit-server)
+(edit-server-start)
+
 (print "Successfully loaded emacs-setup")
