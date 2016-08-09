@@ -86,6 +86,8 @@
 (depends-on "puppet-mode")
 (depends-on "rainbow-mode")
 (depends-on "rake")
+(depends-on "realgud")
+(depends-on "realgud-pry")
 (depends-on "restclient")
 (depends-on "robe")
 (depends-on "rspec-mode")
