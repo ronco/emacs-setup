@@ -539,6 +539,7 @@
             (define-key (current-local-map) [remap newline] 'reindent-then-newline-and-indent)
             (local-set-key (kbd "M-.") 'robe-jump)
             (company-mode t)
+            (setq ruby-insert-encoding-magic-comment nil)
             ))
 
 ;; try to get folding working
