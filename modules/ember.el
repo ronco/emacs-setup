@@ -30,5 +30,8 @@
     )
   )
 
+(setq nvm-dir "/opt/boxen/homebrew/opt/nvm")
 (require 'nvm)
-(nvm-use "0.12")
+(nvm--installed-versions)
+(print "Requiring node 5")
+(nvm-use "5.4.0")
