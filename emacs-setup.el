@@ -463,7 +463,9 @@
 (add-hook 'text-mode-hook 'turn-on-orgtbl)
 
 (setq org-export-backends '(gfm md html ascii icalendar))
-
+(setq org-file-apps
+      '(("\\.docx\\'" . default)
+        (auto-mode . emacs)))
 ;; try out helm
 (require 'helm)
 (require 'helm-config)
