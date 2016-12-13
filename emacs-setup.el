@@ -33,6 +33,17 @@
 (set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
 
+;; deft mode
+
+(require 'deft)
+(global-set-key (kbd "<f8>") 'deft)
+(setq deft-extensions '("md" "org" "txt"))
+(setq deft-default-extension "org")
+(setq deft-markdown-mode-title-level 2)
+(setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
+(setq deft-recursive t)
+(setq deft-use-filter-string-for-filename t)
+
 ;; os keys
 ;; allow right alt to enter funky characters
 (setq ns-right-alternate-modifier nil)
@@ -712,25 +723,6 @@
 
 (global-set-key (kbd "C-3") 'triple-screen)
 
-;; load module files
-(let ((module-dir (concat ronco-es/dir "/modules")))
-  (when (file-exists-p module-dir)
-    (print module-dir)
-    (add-to-list 'load-path module-dir)
-    (mapc #'load
-          (directory-files module-dir t ".*\.el$"))))
-
-;; deft mode
-
-(require 'deft)
-(global-set-key (kbd "<f8>") 'deft)
-(setq deft-extensions '("md" "org" "txt"))
-(setq deft-default-extension "org")
-(setq deft-markdown-mode-title-level 2)
-(setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
-(setq deft-recursive t)
-(setq deft-use-filter-string-for-filename t)
-
 ;; quickly see full path
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
@@ -750,5 +742,15 @@
 
 (require 'edit-server)
 (edit-server-start)
+
+(print "Loading custom modules")
+
+;; load module files
+(let ((module-dir (concat ronco-es/dir "/modules")))
+  (when (file-exists-p module-dir)
+    (print module-dir)
+    (add-to-list 'load-path module-dir)
+    (mapc #'load
+          (directory-files module-dir t ".*\.el$"))))
 
 (print "Successfully loaded emacs-setup")
