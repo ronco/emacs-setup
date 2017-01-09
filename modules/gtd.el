@@ -45,8 +45,6 @@
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (concat org-directory "/diary.org"))
                "* %?\n%U\n" :clock-in t :clock-resume t)
-              ("w" "org-protocol" entry (file org-default-notes-file)
-               "* TODO Review %c\n%U\n" :immediate-finish t)
               ("m" "Meeting" entry (file org-default-notes-file)
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
               ("a" "Appointment" entry (file org-default-notes-file)
