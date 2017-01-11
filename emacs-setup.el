@@ -672,7 +672,7 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ;; disable automatic vertical window splitting (in most cases)
-(setq split-height-threshold nil)
+(setq split-height-threshold 120)
 
 
 ;; (global-set-key (kbd "<f8>") 'neotree-toggle)
