@@ -670,6 +670,29 @@ so change the default 'F' binding in the agenda to allow both"
           '(lambda () (org-defkey org-agenda-mode-map "F" 'bh/restrict-to-file-or-follow))
           'append)
 
+(add-hook 'org-agenda-mode-hook
+          '(lambda () (org-defkey org-agenda-mode-map "\C-c\C-x<" 'bh/set-agenda-restriction-lock))
+          'append)
+
+(defun bh/set-agenda-restriction-lock (arg)
+  "Set restriction lock to current task subtree or file if prefix is specified"
+  (interactive "p")
+  (let* ((pom (bh/get-pom-from-agenda-restriction-or-point))
+         (tags (org-with-point-at pom (org-get-tags-at))))
+    (let ((restriction-type (if (equal arg 4) 'file 'subtree)))
+      (save-restriction
+        (cond
+         ((and (equal major-mode 'org-agenda-mode) pom)
+          (org-with-point-at pom
+            (org-agenda-set-restriction-lock restriction-type))
+          (org-agenda-redo))
+         ((and (equal major-mode 'org-mode) (org-before-first-heading-p))
+          (org-agenda-set-restriction-lock 'file))
+         (pom
+          (org-with-point-at pom
+            (org-agenda-set-restriction-lock restriction-type))))))))
+
+
 (defun bh/narrow-to-org-subtree ()
   (widen)
   (org-narrow-to-subtree)
