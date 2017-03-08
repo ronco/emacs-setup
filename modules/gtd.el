@@ -579,6 +579,7 @@ as the default task."
                             ("WORK" . ?W)
                             ("FARM" . ?F)
                             ("SECURITY" . ?S)
+                            ("POSTMORTEM" . ?M)
                             ("crypt" . ?E)
                             ("NOTE" . ?n)
                             ("CANCELLED" . ?c)
