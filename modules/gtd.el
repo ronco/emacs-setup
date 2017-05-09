@@ -578,6 +578,7 @@ as the default task."
                             ("PERSONAL" . ?P)
                             ("WORK" . ?W)
                             ("FARM" . ?F)
+                            ("CTO" . ?L)
                             ("SECURITY" . ?S)
                             ("POSTMORTEM" . ?M)
                             ("crypt" . ?E)
