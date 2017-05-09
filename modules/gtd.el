@@ -472,6 +472,8 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 ;; Include current clocking task in clock reports
 (setq org-clock-report-include-clocking-task t)
 
+(setq org-agenda-clockreport-parameter-plist (quote (:link t :maxlevel 5)))
+
 (setq bh/keep-clock-running nil)
 
 (defun bh/clock-in-to-next (kw)
