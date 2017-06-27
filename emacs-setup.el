@@ -341,6 +341,8 @@
 
 
 ;; lisp stuff
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 
 
 ;; Modes
@@ -455,18 +457,6 @@
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-log-done t)
-(setq org-directory "~/Dropbox (Personal)/org")
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(setq org-agenda-files (list (concat org-directory "/work.org")
-                             (concat org-directory "/home.org")
-                             (concat org-directory "/someday.org")
-                             org-default-notes-file))
-(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 2))))
-
-(setq org-todo-keywords
-      '((sequence "TODO" "|" "DONE")
-        (sequence "NEW" "IN PROGRESS" "|" "FIXED" "DECLINED")
-        (sequence "|" "CANCELED")))
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cc" 'org-capture)
@@ -682,7 +672,7 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ;; disable automatic vertical window splitting (in most cases)
-(setq split-height-threshold nil)
+(setq split-height-threshold 120)
 
 
 ;; (global-set-key (kbd "<f8>") 'neotree-toggle)
@@ -753,4 +743,6 @@
     (mapc #'load
           (directory-files module-dir t ".*\.el$"))))
 
+;; (setq org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
+(setq-default org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
 (print "Successfully loaded emacs-setup")
