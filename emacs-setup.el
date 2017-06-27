@@ -254,8 +254,8 @@
   (lambda ()
     (dolist (yadir (list
                     yas-installed-snippets-dir
-                    "/Users/ronco/github/ember-yasnippets.el/snippets"
-                    "/Users/ronco/github/mocha-snippets.el/snippets"
+                    ;; "/Users/ronco/github/ember-yasnippets.el/snippets"
+                    ;; "/Users/ronco/github/mocha-snippets.el/snippets"
                     (concat ronco-es/dir "/ib-snippets")
                     (concat ronco-es/dir "/snippets")
                     (concat ronco-es/dir "/yasnippet-snippets")))
@@ -495,7 +495,7 @@
 (projectile-global-mode)
 (helm-projectile-on)
 (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
-(projectile-register-project-type 'ember-cli '("ember-cli-build.js") "ember s" "ember t -s")
+;; (projectile-register-project-type 'ember-cli '("ember-cli-build.js") "ember s" "ember t -s")
 
 ;; modes
 

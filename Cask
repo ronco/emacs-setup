@@ -10,7 +10,6 @@
 (depends-on "buffer-move")
 (depends-on "bundler")
 (depends-on "cask")
-(depends-on "coffee-mode")
 (depends-on "company")
 (depends-on "company-emoji")
 (depends-on "company-restclient")
