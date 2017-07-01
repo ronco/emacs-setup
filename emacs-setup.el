@@ -6,6 +6,9 @@
 ;; pallet mode
 (pallet-mode t)
 
+;; hide toolbar
+(tool-bar-mode -1)
+
 ;; path
 ;; add brew path
 (require 'exec-path-from-shell)
