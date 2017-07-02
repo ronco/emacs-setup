@@ -312,8 +312,8 @@
   "increase indent one level"
   (interactive)
   (indent-rigidly (region-beginning) (region-end) -2))
-(global-set-key (kbd "s-]") 'increase-indent)
-(global-set-key (kbd "s-[") 'decrease-indent)
+(global-set-key (kbd "M-]") 'increase-indent)
+(global-set-key (kbd "M-[") 'decrease-indent)
 
 (setq css-indent-offset 2)
 (setq nxml-indent 2)
@@ -353,7 +353,7 @@
 (define-key global-map (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 
 (require 'ace-window)
-(define-key global-map (kbd "s-w") 'ace-window)
+(define-key global-map (kbd "M-o") 'ace-window)
 
 (global-flycheck-mode)
 
