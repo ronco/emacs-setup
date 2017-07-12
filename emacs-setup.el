@@ -331,6 +331,7 @@
 
 ;; spelling
 (add-hook 'text-mode-hook 'flyspell-mode)
+(global-set-key (kbd "C-$") 'ispell-word)
 
 ;; string inflection
 (require 'string-inflection)
