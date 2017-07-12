@@ -359,8 +359,8 @@
 (global-flycheck-mode)
 
 (nyan-mode)
-(nyan-start-animation)
-(setq nyan-wavy-trail t)
+;; (nyan-start-animation)
+;; (setq nyan-wavy-trail t)
 
 ;; (require 'highlight-indentation)
 (add-hook 'js2-mode-hook 'highlight-indentation-current-column-mode)
