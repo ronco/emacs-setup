@@ -43,7 +43,7 @@
 (setq deft-extensions '("md" "org" "txt"))
 (setq deft-default-extension "org")
 (setq deft-markdown-mode-title-level 2)
-(setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
+(setq deft-directory "~/Box Sync/ron-notes")
 (setq deft-recursive t)
 (setq deft-use-filter-string-for-filename t)
 
@@ -747,5 +747,5 @@
           (directory-files module-dir t ".*\.el$"))))
 
 ;; (setq org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
-(setq-default org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
+(setq-default org-agenda-files (quote ("~/Box Sync/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
 (print "Successfully loaded emacs-setup")
