@@ -6,6 +6,9 @@
 ;; pallet mode
 (pallet-mode t)
 
+;; hide toolbar
+(tool-bar-mode -1)
+
 ;; path
 ;; add brew path
 (require 'exec-path-from-shell)
@@ -40,7 +43,7 @@
 (setq deft-extensions '("md" "org" "txt"))
 (setq deft-default-extension "org")
 (setq deft-markdown-mode-title-level 2)
-(setq deft-directory "~/Dropbox (Ibotta)/ron-notes")
+(setq deft-directory "~/Box Sync/ron-notes")
 (setq deft-recursive t)
 (setq deft-use-filter-string-for-filename t)
 
@@ -70,7 +73,7 @@
 ;;(dynamic-fonts-setup)
 (if window-system
     (progn
-      (set-face-attribute 'default nil :font "Menlo-12")
+      (set-face-attribute 'default nil :font "Menlo-10")
       (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") nil 'prepend)
       ))
 
@@ -254,8 +257,8 @@
   (lambda ()
     (dolist (yadir (list
                     yas-installed-snippets-dir
-                    "/Users/ronco/github/ember-yasnippets.el/snippets"
-                    "/Users/ronco/github/mocha-snippets.el/snippets"
+                    ;; "/Users/ronco/github/ember-yasnippets.el/snippets"
+                    ;; "/Users/ronco/github/mocha-snippets.el/snippets"
                     (concat ronco-es/dir "/ib-snippets")
                     (concat ronco-es/dir "/snippets")
                     (concat ronco-es/dir "/yasnippet-snippets")))
@@ -309,8 +312,8 @@
   "increase indent one level"
   (interactive)
   (indent-rigidly (region-beginning) (region-end) -2))
-(global-set-key (kbd "s-]") 'increase-indent)
-(global-set-key (kbd "s-[") 'decrease-indent)
+(global-set-key (kbd "M-]") 'increase-indent)
+(global-set-key (kbd "M-[") 'decrease-indent)
 
 (setq css-indent-offset 2)
 (setq nxml-indent 2)
@@ -328,6 +331,7 @@
 
 ;; spelling
 (add-hook 'text-mode-hook 'flyspell-mode)
+(global-set-key (kbd "C-$") 'ispell-word)
 
 ;; string inflection
 (require 'string-inflection)
@@ -350,13 +354,13 @@
 (define-key global-map (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 
 (require 'ace-window)
-(define-key global-map (kbd "s-w") 'ace-window)
+(define-key global-map (kbd "M-o") 'ace-window)
 
 (global-flycheck-mode)
 
 (nyan-mode)
-(nyan-start-animation)
-(setq nyan-wavy-trail t)
+;; (nyan-start-animation)
+;; (setq nyan-wavy-trail t)
 
 ;; (require 'highlight-indentation)
 (add-hook 'js2-mode-hook 'highlight-indentation-current-column-mode)
@@ -495,7 +499,7 @@
 (projectile-global-mode)
 (helm-projectile-on)
 (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
-(projectile-register-project-type 'ember-cli '("ember-cli-build.js") "ember s" "ember t -s")
+;; (projectile-register-project-type 'ember-cli '("ember-cli-build.js") "ember s" "ember t -s")
 
 ;; modes
 
@@ -744,5 +748,5 @@
           (directory-files module-dir t ".*\.el$"))))
 
 ;; (setq org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
-(setq-default org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
+(setq-default org-agenda-files (quote ("~/Box Sync/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
 (print "Successfully loaded emacs-setup")

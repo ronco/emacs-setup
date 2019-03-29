@@ -3,10 +3,10 @@
 (add-to-list 'org-modules 'org-habit t)
 (print "added org-habit")
 
-(setq org-directory "~/Dropbox (Ibotta)/ron-notes/org")
+(setq org-directory "~/Box Sync/ron-notes/org")
 (setq personal-org-directory "~/Dropbox (Personal)/org/new-gtd")
 (setq org-default-notes-file (concat org-directory "/refile.org"))
-(setq-default org-agenda-files (quote ("~/Dropbox (Ibotta)/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
+(setq-default org-agenda-files (quote ("~/Box Sync/ron-notes/org" "~/Dropbox (Personal)/org/new-gtd")))
 (setq org-refile-targets (quote ((org-agenda-files :maxlevel . 9))))
 
 (setq org-todo-keywords
