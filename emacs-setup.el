@@ -518,6 +518,9 @@
 (add-to-list 'auto-mode-alist '("Puppetfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) ;; auto-enable for .js/.jsx files
+
+(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
 
 ;; web mode
 (require 'emmet-mode)
