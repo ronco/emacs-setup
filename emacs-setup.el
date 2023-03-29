@@ -256,10 +256,9 @@
 (eval-after-load "yasnippet"
   (lambda ()
     (dolist (yadir (list
-                    yas-installed-snippets-dir
+                    ;; yas-installed-snippets-dir
                     ;; "/Users/ronco/github/ember-yasnippets.el/snippets"
                     ;; "/Users/ronco/github/mocha-snippets.el/snippets"
-                    (concat ronco-es/dir "/ib-snippets")
                     (concat ronco-es/dir "/snippets")
                     (concat ronco-es/dir "/yasnippet-snippets")))
       (add-to-list 'yas-snippet-dirs yadir)
