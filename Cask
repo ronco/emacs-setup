@@ -77,7 +77,6 @@
 (depends-on "org-plus-contrib")
 (depends-on "ox-gfm")
 (depends-on "package-build")
-(depends-on "pallet")
 (depends-on "pcache")
 (depends-on "pkg-info")
 (depends-on "powerline")

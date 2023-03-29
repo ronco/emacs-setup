@@ -2,9 +2,9 @@
 (setq ronco-es/dir (concat
                     user-emacs-directory
                     "emacs-setup"))
-
-;; pallet mode
-(pallet-mode t)
+;; (require 'pallet)
+;; ;; pallet mode
+;; (pallet-mode t)
 
 ;; hide toolbar
 (tool-bar-mode -1)
