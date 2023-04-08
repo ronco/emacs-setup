@@ -47,6 +47,13 @@
 (setq deft-recursive t)
 (setq deft-use-filter-string-for-filename t)
 
+;; recent files
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+
 ;; os keys
 ;; allow right alt to enter funky characters
 (setq ns-right-alternate-modifier nil)
