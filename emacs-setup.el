@@ -322,6 +322,7 @@
 (global-set-key (kbd "M-[") 'decrease-indent)
 
 (setq css-indent-offset 2)
+(setq css-fontify-colors t)
 (setq nxml-indent 2)
 
 ;; whitespace
