@@ -537,6 +537,8 @@
 (add-hook 'css-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook  'emmet-mode)
 (setq emmet-preview-default t)
+(global-set-key (kbd "M-j") 'emmet-expand-line)
+
 
 (require 'company-web-html)
 (defun my-web-mode-hook ()
