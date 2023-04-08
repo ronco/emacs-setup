@@ -546,6 +546,7 @@
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 (setq web-mode-markup-indent-offset 2)
 
+(add-hook 'js-mode-hook 'my-web-mode-hook)
 
 
 ;; ruby
@@ -627,6 +628,16 @@
 ;; jscs
 (eval-after-load 'js2-mode
   '(define-key js2-mode-map (kbd "C-c C-j f") 'jscs-fix))
+
+;; react
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint json-jsonlist)))
+;; Enable eslint checker for web-mode
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; Enable flycheck globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 
 (defun starter-kit-pp-json ()
   "Pretty-print the json object following point."
