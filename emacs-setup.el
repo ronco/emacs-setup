@@ -1,3 +1,4 @@
+(print "Loading emacs-setup")
 
 (setq ronco-es/dir (concat
                     user-emacs-directory
@@ -38,6 +39,7 @@
 
 ;; deft mode
 
+(print "Loading deft")
 (require 'deft)
 (global-set-key (kbd "<f8>") 'deft)
 (setq deft-extensions '("md" "org" "txt"))
@@ -66,6 +68,7 @@
     (message "Starting server")
     (server-start)))
 
+(print "Loading saveplace")
 ;; save place
 (require 'saveplace)
 (setq-default save-place t)
@@ -137,8 +140,8 @@
       (forward-line)
       (transpose-lines -1))
     (move-to-column col)))
-(global-set-key (kbd "<C-M-S-down>") 'move-line-down)
 (global-set-key (kbd "<C-M-S-up>") 'move-line-up)
+(global-set-key (kbd "<C-M-S-down>") 'move-line-down)
 
 ;; window resizing
 
@@ -250,6 +253,7 @@
 
 (add-hook 'prog-mode-hook 'esk-pretty-lambdas)
 
+(print "Loading tramp")
 
 ;; tramp
 (setq tramp-default-method "ssh")
@@ -398,6 +402,8 @@
 
 (add-hook 'sql-interactive-mode-hook 'my-sql-save-history-hook)
 
+(print "Loading magit")
+
 ;; GIT
 (require 'magit)
 (define-key global-map "\C-xg" 'magit-status)
@@ -463,6 +469,7 @@
 ;; vc status line
 (setq auto-revert-check-vc-info t)
 
+(print "Setup org")
 ;; org
 (setq org-clock-idle-time 5)
 (require 'org-install)
@@ -478,10 +485,14 @@
 (setq org-file-apps
       '(("\\.docx\\'" . default)
         (auto-mode . emacs)))
+(print "Setup helm")
 ;; try out helm
+(print "require helm")
 (require 'helm)
-(require 'helm-config)
+;; (print "require helm-config")
+;; (require 'helm-config)
 
+(print "helm key configuration")
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
@@ -491,6 +502,7 @@
 ;; Don't use marks or mark-ring. Start?
 (global-set-key (kbd "C-c m") 'helm-all-mark-rings)
 (global-set-key (kbd "C-c h o") 'helm-occur)
+(print "after helm")
 
 ;; Don't use eshell. Start?
 (add-hook 'eshell-mode-hook
@@ -668,9 +680,9 @@
 ;; ensure plain text suggestions are case sensitive
 (setq company-dabbrev-downcase nil)
 
-;; livedown markdown preview
-(add-to-list 'load-path (concat ronco-es/dir "/emacs-livedown"))
-(require 'livedown)
+;; livedown markdown preview  -- BROKEN
+;; (add-to-list 'load-path (concat ronco-es/dir "/emacs-livedown"))
+;; (require 'livedown)
 
 ;; diminish modes
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
