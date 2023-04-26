@@ -553,19 +553,19 @@
 (add-hook 'css-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook  'emmet-mode)
 (setq emmet-preview-default t)
-(global-set-key (kbd "M-j") 'emmet-expand-line)
+(global-set-key (kbd "C-j") 'emmet-expand-line)
 
 
-(require 'company-web-html)
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (set (make-local-variable 'company-backends) '(company-web-html))
-  (company-mode t)
-  )
-(add-hook 'web-mode-hook 'my-web-mode-hook)
+;; (require 'company-web-html)
+;; (defun my-web-mode-hook ()
+;;   "Hooks for Web mode."
+;;   (set (make-local-variable 'company-backends) '(company-web-html))
+;;   (company-mode t)
+;;   )
+;; (add-hook 'web-mode-hook 'my-web-mode-hook)
 (setq web-mode-markup-indent-offset 2)
 
-(add-hook 'js-mode-hook 'my-web-mode-hook)
+;; (add-hook 'js-mode-hook 'my-web-mode-hook)
 
 
 ;; ruby
@@ -612,8 +612,8 @@
 (font-lock-add-keywords 'js2-mode
                         '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
                            1 font-lock-warning-face t)))
-(autoload 'js2-mode "js" "Start js-mode" t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (autoload 'js2-mode "js" "Start js-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 (custom-set-variables
  '(js2-basic-offset 2)
