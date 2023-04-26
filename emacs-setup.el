@@ -518,6 +518,10 @@
 (projectile-global-mode)
 (helm-projectile-on)
 (setq projectile-mode-line '(:eval (format " Proj[%s]" (projectile-project-name))))
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode +1)
+(add-to-list 'projectile-globally-ignored-directories "docs/static")
+
 ;; (projectile-register-project-type 'ember-cli '("ember-cli-build.js") "ember s" "ember t -s")
 
 ;; modes
